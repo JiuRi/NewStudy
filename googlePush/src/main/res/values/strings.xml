@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Google Firebase Push</string>
+    <string name="default_notification_channel_id">学习通知</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mingpao.xuexi">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/dr"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/dr"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <!--        通知栏显示的 应用名称左侧的图标-->
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon" />
+
+
+        <!--        通知栏显示的 应用名称和下拉查看通知详情的字体颜色-->
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_red_dark" />
+
+
+       <!-- 只要传入的消息未明确设置通知渠道，FCM 就会使用此值-->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+
+
+
+        <activity android:name=".MainActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PushActivity">
+            <intent-filter>
+                <action android:name="com.mingpao.xuexi.push" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <service android:name=".MyFirebaseMessagingService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--   message_receiver  这里可以用来拦截 前后台的通知 获取数据自己出通知 ui   -->
+<!--        <receiver-->
+<!--            android:name=".OtherFirebaseMessagingServicer"-->
+<!--            android:exported="true"-->
+<!--            android:permission="com.google.android.c2dm.permission.SEND">-->
+<!--            <intent-filter android:priority="1000">-->
+<!--                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>-->
+<!--                <category android:name="com.mingpao.mpnewsandroid"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+    </application>
+
+</manifest>
