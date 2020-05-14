@@ -35,7 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     /**
      *  App 如果是在前台打开状态下  是会调用这个方法，但是不会主动弹出通知 需要自己添加
      *
-     *  App 如果是在后台运行 则会直接弹出通知 ，不会调用下面的这些方法
+     *  App 如果是在后台运行 不会调用下面的这些方法 会直接弹出通知.
      *
      * @param remoteMessage
      */
@@ -44,15 +44,24 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
         Log.e(TAG, "onMessageReceived: ____________________________收到消息" );
         if (remoteMessage.getNotification() != null) {
-
-            RemoteMessage.Notification notification = remoteMessage.getNotification();
-            Map<String, String> data = remoteMessage.getData();
-            logNotification(notification);
-            logData(data);
-
+            //弹出通知
             showNotification(remoteMessage);
         }
     }
+
+
+    /**
+     * 应用首次安装注册推送id
+     * @param token
+     */
+    @Override
+    public void onNewToken(String token) {
+        super.onNewToken(token);
+        Log.e(TAG, "onNewToken: _________应用首次安装注册推送id ___________________"+token );
+    }
+
+
+
 
     /**
      *  显示通知
@@ -191,17 +200,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
 
-
-
-    /**
-     * 应用首次安装注册推送id
-     * @param token
-     */
-    @Override
-    public void onNewToken(String token) {
-        super.onNewToken(token);
-        Log.e(TAG, "onNewToken: _________应用首次安装注册推送id ___________________"+token );
-    }
 
 
     /**

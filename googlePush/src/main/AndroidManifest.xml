@@ -18,7 +18,7 @@
             android:resource="@drawable/icon" />
 
 
-        <!--        通知栏显示的 应用名称和下拉查看通知详情的字体颜色-->
+        <!--       通知栏显示的 应用名称和下拉查看通知详情的字体颜色-->
 
         <meta-data android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@android:color/holo_red_dark" />
@@ -46,6 +46,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+        <!--       通知栏显示的 应用名称和下拉查看通知详情的字体颜色-->
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_red_dark" />
+
+
+        <!-- 只要传入的消息未明确设置通知渠道，FCM 就会使用此值-->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
 
 
         <service android:name=".MyFirebaseMessagingService" android:exported="false">

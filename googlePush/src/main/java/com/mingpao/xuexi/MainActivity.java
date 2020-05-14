@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         findViewById(R.id.btn_push_f).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        FirebaseMessaging.getInstance().subscribeToTopic("hahha");
 
     }
 

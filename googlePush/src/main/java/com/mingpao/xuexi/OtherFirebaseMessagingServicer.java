@@ -24,6 +24,7 @@ public class OtherFirebaseMessagingServicer extends BroadcastReceiver {
         String data = intent.getStringExtra("url"); // 获取data 里面的数据 根据 key
         String type = intent.getStringExtra("image"); // 获取data 里面的数据
 
-        // 接下来就是 显示通知  可以自己写样式 也可以使用系统的 
+        // 接下来就是 显示通知  可以自己写样式 也可以使用系统的
+
     }
 }
